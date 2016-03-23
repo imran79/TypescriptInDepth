@@ -17,6 +17,14 @@ var Book = (function () {
     }
     return Book;
 })();
+var Customer = (function () {
+    function Customer(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    return Customer;
+})();
+var cutomers = [];
 function getAllBooks() {
     var books = [];
     books.push(new Book(1, 'Half Girlfriend', 'Chetan Bhangat', true, Category.Fiction));
@@ -43,6 +51,17 @@ function logTitleNamesOfBooks(titles) {
 }
 function CreateCustomerId(name, id) {
     return name + id;
+}
+// Optional Parameter
+function CreateCustomer(name, age) {
+    cutomers.push(new Customer(name, age));
+}
+// Rest parameter ... before parameter name
+function bookReadByCustomer(name) {
+    var bookIds = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        bookIds[_i - 1] = arguments[_i];
+    }
 }
 var titleNames = getAllBooksTitlesByCategory(Category.Fiction);
 logTitleNamesOfBooks(titleNames);

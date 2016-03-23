@@ -9,6 +9,14 @@ class Book{
    
 }
 
+class Customer{    
+    constructor(public name : string , public age ?: number){
+        
+    }
+}
+
+const cutomers : Customer[] = [];
+
 function getAllBooks() : Book[]{    
     const books : Book[] = [];
     books.push(new Book(1,'Half Girlfriend','Chetan Bhangat', true,Category.Fiction));  
@@ -39,6 +47,18 @@ function logTitleNamesOfBooks(titles : string[]) : void {
 
 function CreateCustomerId(name : string , id : number) : string{    
     return name + id ;
+}
+
+// Optional Parameter
+function CreateCustomer(name : string, age?: number){    
+    cutomers.push(new Customer(name, age));
+}
+
+// Rest parameter ... before parameter name
+
+function bookReadByCustomer(name : string, ...bookIds : number[]) : void{
+    
+    
 }
 
 const titleNames = getAllBooksTitlesByCategory(Category.Fiction);
