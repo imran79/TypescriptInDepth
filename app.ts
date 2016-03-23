@@ -2,7 +2,7 @@
 enum Category{"Fiction","Science","Biography","Children","History"};
 
 class Book{    
-    constructor(public title : string, public author : string , public available : boolean, 
+    constructor(public id : number,public title : string, public author : string , public available : boolean, 
                public category : Category){
         
     }
@@ -11,9 +11,9 @@ class Book{
 
 function getAllBooks() : Book[]{    
     const books : Book[] = [];
-    books.push(new Book('Half Girlfriend','Chetan Bhangat', true,Category.Fiction));  
-    books.push(new Book('I refuse to give bribe','Sanjay Misra', false,Category.Fiction)); 
-    books.push(new Book('My Kempf','Adolf Hitler', true,Category.Biography));   
+    books.push(new Book(1,'Half Girlfriend','Chetan Bhangat', true,Category.Fiction));  
+    books.push(new Book(2,'I refuse to give bribe','Sanjay Misra', false,Category.Fiction)); 
+    books.push(new Book(3,'My Kempf','Adolf Hitler', true,Category.Biography));   
     return books;
     
 }
@@ -39,3 +39,12 @@ function logTitleNamesOfBooks(titles : string[]) : void {
 
 const titleNames = getAllBooksTitlesByCategory(Category.Fiction);
 logTitleNamesOfBooks(titleNames);
+
+/****** Fat Arrow examples */
+
+titleNames.forEach((val,idx,arr) => console.log(++idx + '-' + val));
+
+function getBookById(id : number) : Book {    
+    const allBooks = getAllBooks();
+    return allBooks.filter(book => book.id === id)[0]
+}
