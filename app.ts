@@ -35,6 +35,10 @@ function logTitleNamesOfBooks(titles : string[]) : void {
         console.log(title);
     }
     
+} 
+
+function CreateCustomerId(name : string , id : number) : string{    
+    return name + id ;
 }
 
 const titleNames = getAllBooksTitlesByCategory(Category.Fiction);
@@ -48,3 +52,11 @@ function getBookById(id : number) : Book {
     const allBooks = getAllBooks();
     return allBooks.filter(book => book.id === id)[0]
 }
+
+/***Function Type Samples */
+
+let createBookId : (name : string , id : number) => string;
+
+createBookId = CreateCustomerId;
+// this is work as delegate where function defination is same :)
+console.log(createBookId("imran",1));

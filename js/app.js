@@ -8,7 +8,8 @@ var Category;
 })(Category || (Category = {}));
 ;
 var Book = (function () {
-    function Book(title, author, available, category) {
+    function Book(id, title, author, available, category) {
+        this.id = id;
         this.title = title;
         this.author = author;
         this.available = available;
@@ -18,9 +19,9 @@ var Book = (function () {
 })();
 function getAllBooks() {
     var books = [];
-    books.push(new Book('Half Girlfriend', 'Chetan Bhangat', true, Category.Fiction));
-    books.push(new Book('I refuse to give bribe', 'Sanjay Misra', false, Category.Fiction));
-    books.push(new Book('My Kempf', 'Adolf Hitler', true, Category.Biography));
+    books.push(new Book(1, 'Half Girlfriend', 'Chetan Bhangat', true, Category.Fiction));
+    books.push(new Book(2, 'I refuse to give bribe', 'Sanjay Misra', false, Category.Fiction));
+    books.push(new Book(3, 'My Kempf', 'Adolf Hitler', true, Category.Biography));
     return books;
 }
 function getAllBooksTitlesByCategory(category) {
@@ -40,6 +41,20 @@ function logTitleNamesOfBooks(titles) {
         console.log(title);
     }
 }
+function CreateCustomerId(name, id) {
+    return name + id;
+}
 var titleNames = getAllBooksTitlesByCategory(Category.Fiction);
 logTitleNamesOfBooks(titleNames);
+/****** Fat Arrow examples */
+titleNames.forEach(function (val, idx, arr) { return console.log(++idx + '-' + val); });
+function getBookById(id) {
+    var allBooks = getAllBooks();
+    return allBooks.filter(function (book) { return book.id === id; })[0];
+}
+/***Function Type Samples */
+var createBookId;
+createBookId = CreateCustomerId;
+// this is work as delegate where function defination is same :)
+console.log(createBookId("imran", 1));
 //# sourceMappingURL=app.js.map
