@@ -95,14 +95,15 @@ function getTitles(criteria) {
             }
         });
     }
-    var titleNames = getAllBooksTitlesByCategory(Category.Fiction);
-    logTitleNamesOfBooks(titleNames);
-    /****** Fat Arrow examples */
-    titleNames.forEach(function (val, idx, arr) { return console.log(++idx + '-' + val); });
-    /***Function Type Samples */
-    var createBookId;
-    createBookId = CreateCustomerId;
-    // this is work as delegate where function defination is same :)
-    console.log(createBookId("imran", 1));
+    return titles;
 }
+var titleNames = getAllBooksTitlesByCategory(Category.Fiction);
+logTitleNamesOfBooks(titleNames);
+/****** Fat Arrow examples */
+titleNames.forEach(function (val, idx, arr) { return console.log(++idx + '-' + val); });
+/***Function Type Samples */
+var createBookId;
+createBookId = CreateCustomerId;
+// this is work as delegate where function defination is same :)
+console.log(createBookId("imran", 1));
 //# sourceMappingURL=app.js.map

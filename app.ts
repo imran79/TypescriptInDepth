@@ -99,7 +99,9 @@ function getTitles(criteria : any) : string[]{
         { if(book.category === criteria){            
             titles.push(book.title);
         }  
+    })
     }
+    return titles;
 }
 
 const titleNames = getAllBooksTitlesByCategory(Category.Fiction);
