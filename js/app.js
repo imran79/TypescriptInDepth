@@ -56,24 +56,53 @@ function CreateCustomerId(name, id) {
 function CreateCustomer(name, age) {
     cutomers.push(new Customer(name, age));
 }
+function getBookById(id) {
+    var books = getAllBooks();
+    return (books.filter(function (book) { return book.id === id; }) &&
+        books.filter(function (book) { return book.id === id; }).length > 0) ?
+        books.filter(function (book) { return book.id === id; })[0] : null;
+}
 // Rest parameter ... before parameter name
-function bookReadByCustomer(name) {
+function checkOutBooksByCutomer(name) {
     var bookIds = [];
     for (var _i = 1; _i < arguments.length; _i++) {
         bookIds[_i - 1] = arguments[_i];
     }
+    console.log('Check out book by cutomer  ' + name);
+    var checkoutBooks = [];
+    for (var _a = 0; _a < bookIds.length; _a++) {
+        var bookid = bookIds[_a];
+        var book = getBookById(bookid);
+        if (book && book.available) {
+            checkoutBooks.push(book);
+        }
+    }
 }
-var titleNames = getAllBooksTitlesByCategory(Category.Fiction);
-logTitleNamesOfBooks(titleNames);
-/****** Fat Arrow examples */
-titleNames.forEach(function (val, idx, arr) { return console.log(++idx + '-' + val); });
-function getBookById(id) {
-    var allBooks = getAllBooks();
-    return allBooks.filter(function (book) { return book.id === id; })[0];
+function getTitles(criteria) {
+    var books = getAllBooks();
+    var titles = [];
+    if (typeof criteria === 'string') {
+        books.forEach(function (book) {
+            if (book.title === criteria) {
+                titles.push(book.title);
+            }
+        });
+    }
+    else if (typeof criteria === 'Category') {
+        books.forEach(function (book) {
+            if (book.category === criteria) {
+                titles.push(book.title);
+            }
+        });
+    }
+    var titleNames = getAllBooksTitlesByCategory(Category.Fiction);
+    logTitleNamesOfBooks(titleNames);
+    /****** Fat Arrow examples */
+    titleNames.forEach(function (val, idx, arr) { return console.log(++idx + '-' + val); });
+    /***Function Type Samples */
+    var createBookId;
+    createBookId = CreateCustomerId;
+    // this is work as delegate where function defination is same :)
+    console.log(createBookId("imran", 1));
 }
-/***Function Type Samples */
-var createBookId;
-createBookId = CreateCustomerId;
-// this is work as delegate where function defination is same :)
-console.log(createBookId("imran", 1));
 //# sourceMappingURL=app.js.map

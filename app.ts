@@ -54,11 +54,52 @@ function CreateCustomer(name : string, age?: number){
     cutomers.push(new Customer(name, age));
 }
 
+function getBookById(id : number) : Book {
+    const books = getAllBooks();
+   return (books.filter(book => book.id === id) && 
+           books.filter(book => book.id === id).length > 0) ? 
+           books.filter(book => book.id === id)[0] : null;
+}
+
 // Rest parameter ... before parameter name
 
-function bookReadByCustomer(name : string, ...bookIds : number[]) : void{
+function checkOutBooksByCutomer(name : string, ...bookIds : number[]) : void{
     
+    console.log('Check out book by cutomer  ' + name );
+    const checkoutBooks : Book[] = [];
+    for(let bookid of bookIds){
+        let book = getBookById(bookid);
+        if(book && book.available){
+            checkoutBooks.push(book);
+        }        
+    }  
     
+}
+
+/*Fuctions Overloading */
+
+function getTitles(author : string) : string[];
+
+function getTitles(category: Category) : string[];
+
+function getTitles(criteria : any) : string[]{
+    
+    const books = getAllBooks();
+    const titles : string[] = [];
+    if(typeof criteria === 'string'){
+        books.forEach(book =>
+        { if(book.title === criteria){            
+            titles.push(book.title);
+        }          
+             
+        })
+    }
+    else if(typeof criteria === 'Category'){
+        books.forEach(book =>
+        { if(book.category === criteria){            
+            titles.push(book.title);
+        }  
+    }
 }
 
 const titleNames = getAllBooksTitlesByCategory(Category.Fiction);
@@ -68,10 +109,6 @@ logTitleNamesOfBooks(titleNames);
 
 titleNames.forEach((val,idx,arr) => console.log(++idx + '-' + val));
 
-function getBookById(id : number) : Book {    
-    const allBooks = getAllBooks();
-    return allBooks.filter(book => book.id === id)[0]
-}
 
 /***Function Type Samples */
 
