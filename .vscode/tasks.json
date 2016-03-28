@@ -14,6 +14,7 @@
 	// args is the HelloWorld program to compile.
 	"args": ["--target", "ES5",
              "--outDir", "js",
+             "--module","commonjs",
              "--sourcemap",
              "--watch",
              "app.ts"            

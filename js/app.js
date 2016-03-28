@@ -1,35 +1,10 @@
-var Category;
-(function (Category) {
-    Category[Category["Fiction"] = 0] = "Fiction";
-    Category[Category["Science"] = 1] = "Science";
-    Category[Category["Biography"] = 2] = "Biography";
-    Category[Category["Children"] = 3] = "Children";
-    Category[Category["History"] = 4] = "History";
-})(Category || (Category = {}));
-;
-var Book = (function () {
-    function Book(id, title, author, available, category) {
-        this.id = id;
-        this.title = title;
-        this.author = author;
-        this.available = available;
-        this.category = category;
-    }
-    return Book;
-})();
-var Customer = (function () {
-    function Customer(name, age) {
-        this.name = name;
-        this.age = age;
-    }
-    return Customer;
-})();
+var enum_1 = require('./enum');
 var cutomers = [];
 function getAllBooks() {
     var books = [];
-    books.push(new Book(1, 'Half Girlfriend', 'Chetan Bhangat', true, Category.Fiction));
-    books.push(new Book(2, 'I refuse to give bribe', 'Sanjay Misra', false, Category.Fiction));
-    books.push(new Book(3, 'My Kempf', 'Adolf Hitler', true, Category.Biography));
+    books.push({ id: 1, title: 'Half Girlfriend', author: 'Chetan Bhangat', available: true, category: enum_1.Category.Fiction });
+    books.push({ id: 2, title: 'I refuse to give bribe', author: 'Sanjay Misra', available: false, category: enum_1.Category.Fiction });
+    books.push({ id: 3, title: 'My Kempf', author: 'Adolf Hitler', available: true, category: enum_1.Category.Biography });
     return books;
 }
 function getAllBooksTitlesByCategory(category) {
@@ -54,7 +29,7 @@ function CreateCustomerId(name, id) {
 }
 // Optional Parameter
 function CreateCustomer(name, age) {
-    cutomers.push(new Customer(name, age));
+    cutomers.push({ name: name, age: age });
 }
 function getBookById(id) {
     var books = getAllBooks();
@@ -97,7 +72,7 @@ function getTitles(criteria) {
     }
     return titles;
 }
-var titleNames = getAllBooksTitlesByCategory(Category.Fiction);
+var titleNames = getAllBooksTitlesByCategory(enum_1.Category.Fiction);
 logTitleNamesOfBooks(titleNames);
 /****** Fat Arrow examples */
 titleNames.forEach(function (val, idx, arr) { return console.log(++idx + '-' + val); });

@@ -1,27 +1,15 @@
 
-enum Category{"Fiction","Science","Biography","Children","History"};
+import {Category} from './enum';
+import {Book,Customer} from './interface/interface';
 
-class Book{    
-    constructor(public id : number,public title : string, public author : string , public available : boolean, 
-               public category : Category){
-        
-    }
-   
-}
-
-class Customer{    
-    constructor(public name : string , public age ?: number){
-        
-    }
-}
 
 const cutomers : Customer[] = [];
 
 function getAllBooks() : Book[]{    
     const books : Book[] = [];
-    books.push(new Book(1,'Half Girlfriend','Chetan Bhangat', true,Category.Fiction));  
-    books.push(new Book(2,'I refuse to give bribe','Sanjay Misra', false,Category.Fiction)); 
-    books.push(new Book(3,'My Kempf','Adolf Hitler', true,Category.Biography));   
+    books.push({id : 1,title : 'Half Girlfriend',author : 'Chetan Bhangat', available: true,category : Category.Fiction});  
+    books.push({id :2,title : 'I refuse to give bribe',author :'Sanjay Misra',available: false,category :Category.Fiction}); 
+    books.push({id :3,title : 'My Kempf',author :'Adolf Hitler',available: true,category :Category.Biography});   
     return books;
     
 }
@@ -51,7 +39,7 @@ function CreateCustomerId(name : string , id : number) : string{
 
 // Optional Parameter
 function CreateCustomer(name : string, age?: number){    
-    cutomers.push(new Customer(name, age));
+    cutomers.push({name : name, age : age});
 }
 
 function getBookById(id : number) : Book {
