@@ -1,6 +1,6 @@
 
 import {Category} from './enum';
-import {Book,Customer} from './interface/interface';
+import {Book,Customer,DamageLogger} from './interface/interface';
 
 
 const cutomers : Customer[] = [];
@@ -107,3 +107,22 @@ let createBookId : (name : string , id : number) => string;
 createBookId = CreateCustomerId;
 // this is work as delegate where function defination is same :)
 console.log(createBookId("imran",1));
+
+let bookDamageLogger : DamageLogger; 
+
+bookDamageLogger = (reason : string) => console.log('This book is damaged due to' + reason);
+
+bookDamageLogger('pages are not printed in sequence');
+
+let book : Book = {    
+    id : 1,
+    title : 'Half Girlfriend',
+    author : 'Chetan Bhangat', 
+    available: true,
+    category : Category.Fiction,
+    markedDamaged  : (reason : string) => console.log('This book is damaged due to' + reason)
+}
+
+
+
+

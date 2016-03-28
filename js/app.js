@@ -11,9 +11,9 @@ function getAllBooksTitlesByCategory(category) {
     var titles = [];
     var allBooks = getAllBooks();
     for (var _i = 0; _i < allBooks.length; _i++) {
-        var book = allBooks[_i];
-        if (book.category === category) {
-            titles.push(book.title);
+        var book_1 = allBooks[_i];
+        if (book_1.category === category) {
+            titles.push(book_1.title);
         }
     }
     return titles;
@@ -47,9 +47,9 @@ function checkOutBooksByCutomer(name) {
     var checkoutBooks = [];
     for (var _a = 0; _a < bookIds.length; _a++) {
         var bookid = bookIds[_a];
-        var book = getBookById(bookid);
-        if (book && book.available) {
-            checkoutBooks.push(book);
+        var book_2 = getBookById(bookid);
+        if (book_2 && book_2.available) {
+            checkoutBooks.push(book_2);
         }
     }
 }
@@ -81,4 +81,15 @@ var createBookId;
 createBookId = CreateCustomerId;
 // this is work as delegate where function defination is same :)
 console.log(createBookId("imran", 1));
+var bookDamageLogger;
+bookDamageLogger = function (reason) { return console.log('This book is damaged due to' + reason); };
+bookDamageLogger('pages are not printed in sequence');
+var book = {
+    id: 1,
+    title: 'Half Girlfriend',
+    author: 'Chetan Bhangat',
+    available: true,
+    category: enum_1.Category.Fiction,
+    markedDamaged: function (reason) { return console.log('This book is damaged due to' + reason); }
+};
 //# sourceMappingURL=app.js.map
