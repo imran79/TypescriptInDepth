@@ -22,4 +22,11 @@ interface Customer{
     
 }
 
+interface LibraryResource{
+    catalogNumber : number
+}
+
+interface Encyclopedia extends LibraryResource, Book{
+    
+}
 export {Book, DamageLogger,Customer } ;
