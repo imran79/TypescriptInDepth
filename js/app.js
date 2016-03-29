@@ -1,4 +1,5 @@
 var enum_1 = require('./enum');
+var class_1 = require('./class/class');
 var cutomers = [];
 function getAllBooks() {
     var books = [];
@@ -92,4 +93,6 @@ var book = {
     category: enum_1.Category.Fiction,
     markedDamaged: function (reason) { return console.log('This book is damaged due to' + reason); }
 };
+var elementrySclLib = new class_1.ElementrySchoolLibrarian();
+elementrySclLib.doWork();
 //# sourceMappingURL=app.js.map

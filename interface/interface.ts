@@ -29,4 +29,9 @@ interface LibraryResource{
 interface Encyclopedia extends LibraryResource, Book{
     
 }
-export {Book, DamageLogger,Customer } ;
+
+interface Librarian{
+    
+    doWork :() => void;
+}
+export {Book, DamageLogger,Customer,Librarian } ;

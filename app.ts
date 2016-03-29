@@ -1,6 +1,7 @@
 
 import {Category} from './enum';
-import {Book,Customer,DamageLogger} from './interface/interface';
+import {Book,Customer,DamageLogger,Librarian} from './interface/interface';
+import {ElementrySchoolLibrarian} from './class/class'
 
 
 const cutomers : Customer[] = [];
@@ -122,6 +123,9 @@ let book : Book = {
     category : Category.Fiction,
     markedDamaged  : (reason : string) => console.log('This book is damaged due to' + reason)
 }
+
+let elementrySclLib : Librarian = new ElementrySchoolLibrarian();
+elementrySclLib.doWork();
 
 
 
