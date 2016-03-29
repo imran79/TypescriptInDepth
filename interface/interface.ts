@@ -30,8 +30,7 @@ interface Encyclopedia extends LibraryResource, Book{
     
 }
 
-interface Librarian{
-    
-    doWork :() => void;
+interface Librarian{    
+    assistCustomer : (custName : string) => void;
 }
 export {Book, DamageLogger,Customer,Librarian } ;

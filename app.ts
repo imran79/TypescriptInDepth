@@ -1,7 +1,7 @@
 
 import {Category} from './enum';
 import {Book,Customer,DamageLogger,Librarian} from './interface/interface';
-import {ElementrySchoolLibrarian} from './class/class'
+import {UniversityLibrarian,ReferenceItem } from './class/class'
 
 
 const cutomers : Customer[] = [];
@@ -124,8 +124,10 @@ let book : Book = {
     markedDamaged  : (reason : string) => console.log('This book is damaged due to' + reason)
 }
 
-let elementrySclLib : Librarian = new ElementrySchoolLibrarian();
-elementrySclLib.doWork();
+let referenceType : ReferenceItem = new ReferenceItem('Facts and  Figure', 2001);
+referenceType.set('Tata McgrawHill');
+referenceType.printItem();
+
 
 
 

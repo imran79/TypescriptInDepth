@@ -93,6 +93,7 @@ var book = {
     category: enum_1.Category.Fiction,
     markedDamaged: function (reason) { return console.log('This book is damaged due to' + reason); }
 };
-var elementrySclLib = new class_1.ElementrySchoolLibrarian();
-elementrySclLib.doWork();
+var referenceType = new class_1.ReferenceItem('Facts and  Figure', 2001);
+referenceType.set('Tata McgrawHill');
+referenceType.printItem();
 //# sourceMappingURL=app.js.map
