@@ -2,12 +2,7 @@
 import {
     Category
 } from './enum';
-import {
-    Book,
-    Customer,
-    DamageLogger,
-    Librarian
-} from './interface/interface';
+import * as interfaces from './interface/interface';
 import {
     UniversityLibrarian,
     ReferenceItem,
@@ -16,10 +11,10 @@ import {
 
 import * as utility from './utility/utility'
 
-const cutomers: Customer[] = [];
+const cutomers: interfaces.Customer[] = [];
 
-function getAllBooks(): Book[] {
-    const books: Book[] = [];
+function getAllBooks(): interfaces.Book[] {
+    const books: interfaces.Book[] = [];
     books.push({
         id: 1,
         title: 'Half Girlfriend',
@@ -76,7 +71,7 @@ function CreateCustomer(name: string, age ? : number) {
     });
 }
 
-function getBookById(id: number): Book {
+function getBookById(id: number): interfaces.Book {
     const books = getAllBooks();
     return (books.filter(book => book.id === id) &&
             books.filter(book => book.id === id).length > 0) ?
@@ -88,7 +83,7 @@ function getBookById(id: number): Book {
 function checkOutBooksByCutomer(name: string, ...bookIds: number[]): void {
 
     console.log('Check out book by cutomer  ' + name);
-    const checkoutBooks: Book[] = [];
+    const checkoutBooks: interfaces.Book[] = [];
     for (let bookid of bookIds) {
         let book = getBookById(bookid);
         if (book && book.available) {
@@ -141,13 +136,13 @@ createBookId = CreateCustomerId;
 // this is work as delegate where function defination is same :)
 console.log(createBookId("imran", 1));
 
-let bookDamageLogger: DamageLogger;
+let bookDamageLogger: interfaces.logger;
 
 bookDamageLogger = (reason: string) => console.log('This book is damaged due to' + reason);
 
 bookDamageLogger('pages are not printed in sequence');
 
-let book: Book = {
+let book: interfaces.Book = {
     id: 1,
     title: 'Half Girlfriend',
     author: 'Chetan Bhangat',

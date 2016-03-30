@@ -33,4 +33,4 @@ interface Encyclopedia extends LibraryResource, Book{
 interface Librarian{    
     assistCustomer : (custName : string) => void;
 }
-export {Book, DamageLogger,Customer,Librarian } ;
+export {Book, DamageLogger as logger,Customer,Librarian } ;
