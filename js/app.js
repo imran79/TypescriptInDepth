@@ -96,4 +96,6 @@ var book = {
 var referenceType = new class_1.ReferenceItem('Facts and  Figure', 2001);
 referenceType.set('Tata McgrawHill');
 referenceType.printItem();
+var encyclopedia = new class_1.Encyclopedia('Facts and  Figure', 2001, 10);
+encyclopedia.printItem();
 //# sourceMappingURL=app.js.map

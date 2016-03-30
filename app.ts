@@ -1,7 +1,7 @@
 
 import {Category} from './enum';
 import {Book,Customer,DamageLogger,Librarian} from './interface/interface';
-import {UniversityLibrarian,ReferenceItem } from './class/class'
+import {UniversityLibrarian,ReferenceItem,Encyclopedia } from './class/class'
 
 
 const cutomers : Customer[] = [];
@@ -127,6 +127,11 @@ let book : Book = {
 let referenceType : ReferenceItem = new ReferenceItem('Facts and  Figure', 2001);
 referenceType.set('Tata McgrawHill');
 referenceType.printItem();
+
+
+let encyclopedia : ReferenceItem = new Encyclopedia('Facts and  Figure', 2001,10);
+
+encyclopedia.printItem();
 
 
 
