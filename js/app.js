@@ -3,8 +3,10 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+/// < reference path="./utility/utility.ts />"
 var enum_1 = require('./enum');
 var class_1 = require('./class/class');
+var utility = require('./utility/utility');
 var cutomers = [];
 function getAllBooks() {
     var books = [];
@@ -149,4 +151,5 @@ var Novel = (function (_super) {
     }
     return default_2;
 })());
+console.log(utility.utility.feeUitility.calculateLateFees(10));
 //# sourceMappingURL=app.js.map

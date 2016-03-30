@@ -1,3 +1,4 @@
+/// < reference path="./utility/utility.ts />"
 import {
     Category
 } from './enum';
@@ -13,6 +14,7 @@ import {
     Encyclopedia
 } from './class/class'
 
+import * as utility from './utility/utility'
 
 const cutomers: Customer[] = [];
 
@@ -179,3 +181,5 @@ testClassExpression.printCitation();
 class Novel extends class{title :string}{
     mainCharacter : string;
 }
+
+console.log(utility.utility.feeUitility.calculateLateFees(10));
