@@ -3,9 +3,27 @@ var class_1 = require('./class/class');
 var cutomers = [];
 function getAllBooks() {
     var books = [];
-    books.push({ id: 1, title: 'Half Girlfriend', author: 'Chetan Bhangat', available: true, category: enum_1.Category.Fiction });
-    books.push({ id: 2, title: 'I refuse to give bribe', author: 'Sanjay Misra', available: false, category: enum_1.Category.Fiction });
-    books.push({ id: 3, title: 'My Kempf', author: 'Adolf Hitler', available: true, category: enum_1.Category.Biography });
+    books.push({
+        id: 1,
+        title: 'Half Girlfriend',
+        author: 'Chetan Bhangat',
+        available: true,
+        category: enum_1.Category.Fiction
+    });
+    books.push({
+        id: 2,
+        title: 'I refuse to give bribe',
+        author: 'Sanjay Misra',
+        available: false,
+        category: enum_1.Category.Fiction
+    });
+    books.push({
+        id: 3,
+        title: 'My Kempf',
+        author: 'Adolf Hitler',
+        available: true,
+        category: enum_1.Category.Biography
+    });
     return books;
 }
 function getAllBooksTitlesByCategory(category) {
@@ -30,7 +48,10 @@ function CreateCustomerId(name, id) {
 }
 // Optional Parameter
 function CreateCustomer(name, age) {
-    cutomers.push({ name: name, age: age });
+    cutomers.push({
+        name: name,
+        age: age
+    });
 }
 function getBookById(id) {
     var books = getAllBooks();
@@ -93,9 +114,10 @@ var book = {
     category: enum_1.Category.Fiction,
     markedDamaged: function (reason) { return console.log('This book is damaged due to' + reason); }
 };
-var referenceType = new class_1.ReferenceItem('Facts and  Figure', 2001);
+/*let referenceType: ReferenceItem = new ReferenceItem('Facts and  Figure', 2001);
 referenceType.set('Tata McgrawHill');
-referenceType.printItem();
+referenceType.printItem(); */
 var encyclopedia = new class_1.Encyclopedia('Facts and  Figure', 2001, 10);
 encyclopedia.printItem();
+encyclopedia.printCitation();
 //# sourceMappingURL=app.js.map

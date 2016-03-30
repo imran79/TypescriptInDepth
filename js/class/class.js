@@ -11,6 +11,7 @@ var UniversityLibrarian = (function () {
     return UniversityLibrarian;
 })();
 exports.UniversityLibrarian = UniversityLibrarian;
+abstract;
 var ReferenceItem = (function () {
     function ReferenceItem(title, year) {
         var _this = this;
@@ -22,6 +23,7 @@ var ReferenceItem = (function () {
         };
         this.get = function () { return _this._publisherName; };
         this.set = function (publisherName) { return _this._publisherName = publisherName; };
+        this.abstract = printCitation();
         console.log('This is reference item');
     }
     ReferenceItem.departmentName = 'Research';
@@ -39,6 +41,10 @@ var Encyclopedia = (function (_super) {
             console.log(_this.title + " is published in year " + _this.year + " edition " + _this.edition);
         };
     }
+    Encyclopedia.prototype.printCitation = function () {
+        console.log('this is print Citation');
+        console.log(this.edition + " .... " + this.edition);
+    };
     return Encyclopedia;
 })(ReferenceItem);
 exports.Encyclopedia = Encyclopedia;
