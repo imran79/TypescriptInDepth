@@ -8,7 +8,8 @@ class UniversityLibrarian implements Librarian {
     department: string;
     assistCustomer = (custName: string) => console.log('this' + this.name + 'assist ' + custName);
 }
-abstract class ReferenceItem {
+//abstract class ReferenceItem 
+class ReferenceItem{
 
     private _publisherName: string;
     static departmentName: string = 'Research';
@@ -25,7 +26,7 @@ abstract class ReferenceItem {
     get = () => this._publisherName;
     set = (publisherName: string) => this._publisherName = publisherName;
 
-    abstract printCitation(): void;
+    //abstract printCitation(): void;
 }
 
 

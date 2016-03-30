@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var enum_1 = require('./enum');
 var class_1 = require('./class/class');
 var cutomers = [];
@@ -119,5 +124,29 @@ referenceType.set('Tata McgrawHill');
 referenceType.printItem(); */
 var encyclopedia = new class_1.Encyclopedia('Facts and  Figure', 2001, 10);
 encyclopedia.printItem();
-encyclopedia.printCitation();
+//encyclopedia.printCitation();
+// Class Expressions---
+var encyclopedia1 = (function (_super) {
+    __extends(default_1, _super);
+    function default_1() {
+        _super.apply(this, arguments);
+        this.printCitation = function () {
+            console.log("" + this.title);
+        };
+    }
+    return default_1;
+})(class_1.ReferenceItem);
+var testClassExpression = new encyclopedia1('test', 1994);
+testClassExpression.printCitation();
+var Novel = (function (_super) {
+    __extends(Novel, _super);
+    function Novel() {
+        _super.apply(this, arguments);
+    }
+    return Novel;
+})((function () {
+    function default_2() {
+    }
+    return default_2;
+})());
 //# sourceMappingURL=app.js.map

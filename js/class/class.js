@@ -11,7 +11,7 @@ var UniversityLibrarian = (function () {
     return UniversityLibrarian;
 })();
 exports.UniversityLibrarian = UniversityLibrarian;
-abstract;
+//abstract class ReferenceItem 
 var ReferenceItem = (function () {
     function ReferenceItem(title, year) {
         var _this = this;
@@ -23,7 +23,6 @@ var ReferenceItem = (function () {
         };
         this.get = function () { return _this._publisherName; };
         this.set = function (publisherName) { return _this._publisherName = publisherName; };
-        this.abstract = printCitation();
         console.log('This is reference item');
     }
     ReferenceItem.departmentName = 'Research';

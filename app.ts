@@ -162,4 +162,20 @@ referenceType.printItem(); */
 let encyclopedia: ReferenceItem = new Encyclopedia('Facts and  Figure', 2001, 10);
 
 encyclopedia.printItem();
-encyclopedia.printCitation();
+//encyclopedia.printCitation();
+
+// Class Expressions---
+
+let encyclopedia1  = class extends ReferenceItem{
+    
+    printCitation = () =>{
+        console.log(`${this.title}`);
+    }
+}
+
+let testClassExpression = new encyclopedia1('test',1994);
+testClassExpression.printCitation();
+
+class Novel extends class{title :string}{
+    mainCharacter : string;
+}
